@@ -9,13 +9,13 @@ pipeline {
         stage('Build Code') {
             steps {
                 sh "chmod u+x remainder.py"
-                sh "./remainder.py"
+                sh "python remainder.py"
             }
         }
         stage('To pass tests') {
             steps {
-                sh "chmod u+x test.py"
-                sh "./Tests.py"
+                sh "chmod u+x Tests.py"
+                sh "python Tests.py"
             }
         }
         
