@@ -14,13 +14,13 @@ class Test_pass(unittest.TestCase):
         rem = remainder(12,5)
         self.assertEqual(rem,2)
         
-    def test_4(self):
-        rem = remainder(100,10)
-        self.assertEqual(rem,5)
+    # def test_4(self):
+    #     rem = remainder(100,10)
+    #     self.assertEqual(rem,5)
 
-    def test_5(self):
-        rem = remainder(12,10)
-        self.assertEqual(rem,5)
+    # def test_5(self):
+    #     rem = remainder(12,10)
+    #     self.assertEqual(rem,5)
 
 if __name__ == '__main__':
     unittest.main()

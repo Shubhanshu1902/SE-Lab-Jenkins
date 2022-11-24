@@ -6,7 +6,7 @@ class Test_fail(unittest.TestCase):
         rem = remainder(100,10)
         self.assertEqual(rem,5)
 
-    def test_1(self):
+    def test_2(self):
         rem = remainder(12,10)
         self.assertEqual(rem,5)
 
