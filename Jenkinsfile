@@ -8,6 +8,7 @@ import groovy.transform.Field
 
 properties([
     parameters(
+        [booleanParam(name: 'RUN_ALL', defaultValue: false, description: 'Set all cits to true')] +
         optionalCits.collect { cit, description ->
             booleanParam(name: cit, defaultValue: false, description: description)
         } + [
@@ -20,12 +21,11 @@ properties([
 pipeline { 
     agent any
     parameters {
-        // string(
-        //     name: "Additional",
-        //     defaultValue: "",
-        //     description: "Additional parameters for the build"
-        // )
-
+        booleanParam(
+            name: "RUN_ALL",
+            defaultValue: false,
+            description: "Set all cits to true"
+        )
         booleanParam(
             name: "tp1",
             defaultValue: false,
@@ -37,8 +37,34 @@ pipeline {
             defaultValue: false,
             description: "des2"
         )
+        booleanParam(
+            name: "cit1",
+            defaultValue: false,
+            description: "description1"
+        )
+        booleanParam(
+            name: "cit2",
+            defaultValue: false,
+            description: "description2"
+        )
+        booleanParam(
+            name: "cit3",
+            defaultValue: false,
+            description: "description3"
+        )
     }
     stages {
+        stage('Set CITs if RUN_ALL') {
+            steps {
+                script {
+                    if (params.RUN_ALL) {
+                        params.cit1 = true
+                        params.cit2 = true
+                        params.cit3 = true
+                    }
+                }
+            }
+        }
         stage('Clone Git') {
             steps {
                 git 'https://github.com/Shubhanshu1902/SE-Lab-Jenkins.git'
