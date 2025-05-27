@@ -17,7 +17,7 @@ properties([
         ] + optionalCits.collect { cit, description ->
             booleanParam(
                 name: cit, 
-                defaultValue: false, 
+                defaultValue: true, 
                 description: description
             )
         } + [
@@ -31,35 +31,14 @@ pipeline {
     agent any
     parameters {
         booleanParam(
-            name: "RUN_ALL",
-            defaultValue: false,
-            description: "Set all cits to true"
-        )
-        booleanParam(
             name: "tp1",
             defaultValue: false,
             description: "des1"
         )
-
         booleanParam(
             name: "tp2",
             defaultValue: false,
             description: "des2"
-        )
-        booleanParam(
-            name: "cit1",
-            defaultValue: false,
-            description: "description1"
-        )
-        booleanParam(
-            name: "cit2",
-            defaultValue: false,
-            description: "description2"
-        )
-        booleanParam(
-            name: "cit3",
-            defaultValue: false,
-            description: "description3"
         )
     }
     stages {
