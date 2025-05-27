@@ -6,14 +6,16 @@ import groovy.transform.Field
     "cit3" : "description3",
 ]
 
-properties([ parameters(optionalCits.collect { cit, description -> 
-    booleanParam(name: cit, defaultValue: false, description: description)
-})
+properties([ 
+    parameters(optionalCits.collect { cit, description -> 
+        booleanParam(name: cit, defaultValue: false, description: description)
+    })
+
+    parameters([
+        string(name: 'Additional', defaultValue: '', description: 'Additional parameters for the build')
+    ])
 ])
 
-parameters {
-    string(name: 'Additional', defaultValue: '', description: 'Additional parameters for the build')
-}
 
 pipeline { 
     agent any
