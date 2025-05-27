@@ -6,7 +6,7 @@ import groovy.transform.Field
     "cit3" : "description3",
 ]
 
-property([ parameters(optionalCits.Collect { cit, description -> 
+property([ parameters(optionalCits.collect { cit, description -> 
     booleanParam(name: cit, defaultValue: false, description: description)
 })
 ])
