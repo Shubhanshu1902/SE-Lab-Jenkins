@@ -11,14 +11,18 @@ properties([ parameters(optionalCits.collect { cit, description ->
 })
 ])
 
+parameters {
+    string(name: 'Additional', defaultValue: '', description: 'Additional parameters for the build')
+}
+
 pipeline { 
     agent any
     parameters {
-        string(
-            name: "Additional",
-            defaultValue: "",
-            description: "Additional parameters for the build"
-        )
+        // string(
+        //     name: "Additional",
+        //     defaultValue: "",
+        //     description: "Additional parameters for the build"
+        // )
 
         booleanParam(
             name: "tp1",
