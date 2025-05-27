@@ -1,16 +1,26 @@
 import groovy.transform.Field
 
 @Field def optionalCits = [
-    "cit1" : "description1",
-    "cit2" : "description2",
-    "cit3" : "description3",
+    "cit1" : {
+        description: "description1"
+        defaultValue: false
+    },
+    "cit2" : {
+        description: "description1"
+        defaultValue: false
+    },
+    "cit3" : {
+        description: "description1"
+        defaultValue: false
+    },
 ]
+
 
 properties([
     parameters(
         [booleanParam(name: 'RUN_ALL', defaultValue: false, description: 'Set all cits to true')] +
         optionalCits.collect { cit, description ->
-            booleanParam(name: cit, defaultValue: false, description: description)
+            booleanParam(name: cit, defaultValue: description.defaultValue, description: description.description)
         } + [
             string(name: 'Additional', defaultValue: '', description: 'Additional parameters for the build')
         ]
