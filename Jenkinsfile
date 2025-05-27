@@ -1,3 +1,5 @@
+import groovy.transform.Field
+
 @Field def optionalCits = [
     "cit1" : "description1",
     "cit2" : "description2",
